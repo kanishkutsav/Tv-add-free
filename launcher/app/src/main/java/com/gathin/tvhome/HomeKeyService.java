@@ -128,6 +128,10 @@ public class HomeKeyService extends AccessibilityService {
 
     @Override
     protected boolean onKeyEvent(KeyEvent event) {
+        android.util.Log.d("TvHomeKeys", "action=" + event.getAction()
+                + " keyCode=" + event.getKeyCode()
+                + " scanCode=" + event.getScanCode()
+                + " deviceId=" + event.getDeviceId());
         // A scancode entry is more specific than any keycode, so it goes first.
         if (RemoteKeys.handle(this, event, appScancodes.get(event.getScanCode()),
                 holdAppScancodes.get(event.getScanCode()))) return true;
