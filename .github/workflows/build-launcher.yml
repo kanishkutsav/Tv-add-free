@@ -36,12 +36,12 @@ jobs:
         working-directory: launcher
         run: |
           chmod +x ./gradlew
-          ./gradlew --no-daemon assembleDebug
+          ./gradlew --no-daemon assembleDebug -PlauncherApplicationId=com.gathin.tvhome.diagnostic
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: tv-launcher-apk
+          name: tv-launcher-diagnostic-apk
           path: launcher/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7
